@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopkeeper Dashboard</title>
+  <link rel="stylesheet" href="shopkeeper.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, Shopkeeper 👋</h1>
+
+    <div class="form-container">
+      <input type="text" id="productName" placeholder="Enter product name" />
+      <input type="text" id="productPrice" placeholder="Enter product price" />
+      <button onclick="addProduct()">Add Product</button>
+    </div>
+
+    <h2>Product List</h2>
+    <ul id="productList" class="product-list"></ul>
+  </div>
+
+  <h2>Incoming Orders</h2>
+<ul id="orderList" class="product-list"></ul>
+
+<script>
+  function loadCustomerOrder() {
+    const orderList = document.getElementById("orderList");
+    const data = localStorage.getItem("customerOrder");
+    if (!data) return;
+
+    const orders = JSON.parse(data);
+    orderList.innerHTML = "";
+    orders.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - ₹${item.price}`;
+      orderList.appendChild(li);
+    });
+  }
+
+  loadCustomerOrder();
+</script>
+<script>
+    function addProduct() {
+      const name = document.getElementById("productName").value;
+      const price = document.getElementById("productPrice").value;
+  
+      if (!name || !price) {
+        alert("Please enter both product name and price.");
+        return;
+      }
+  
+      const product = { name, price };
+      let products = JSON.parse(localStorage.getItem("products")) || [];
+      products.push(product);
+      localStorage.setItem("products", JSON.stringify(products));
+  
+      document.getElementById("productName").value = "";
+      document.getElementById("productPrice").value = "";
+  
+      renderProductList();
+    }
+  
+    function renderProductList() {
+      const productList = document.getElementById("productList");
+      productList.innerHTML = "";
+      const products = JSON.parse(localStorage.getItem("products")) || [];
+  
+      products.forEach((product, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${product.name} - ₹${product.price}
+          <button onclick="removeProduct(${index})">Remove</button>
+        `;
+        productList.appendChild(li);
+      });
+    }
+  
+    function removeProduct(index) {
+      let products = JSON.parse(localStorage.getItem("products")) || [];
+      products.splice(index, 1);
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProductList();
+    }
+  
+    window.onload = renderProductList;
+  </script>
+  
+
+  <script src="shopkeeper.js"></script>
+</body>
+</html>

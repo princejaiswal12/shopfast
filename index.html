@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopFast</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Shop<span>Fast</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="login-btn" onclick="showModal()">Login</a></li>
+
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Bringing Local<br>Shops Online</h1>
+      <p>Your one-stop shop for discovering and ordering products from local <span class="error">reter</span>.</p>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search for products..."/>
+        <button onclick="handleSearch()">Search</button>
+      </div>
+
+      <ul class="features">
+        <li>✔️ Browse Products</li>
+        <li>✔️ Place Orders</li>
+        <li>✔️ Check Availability</li>
+      </ul>
+
+      <button class="contact-btn">Contact</button>
+    </div>
+
+    <div class="hero-img">
+      <img src="abc.png" alt="App Illustration" />
+    </div>
+  </header>
+
+  <!-- Add inside <body> just before the <script> tag -->
+<div id="roleModal" class="modal">
+  <div class="modal-content">
+    <h2>Select Login Type</h2>
+    <button onclick="redirectTo('shopkeeper')">Shopkeeper</button>
+    <button onclick="redirectTo('customer')">Customer</button>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
