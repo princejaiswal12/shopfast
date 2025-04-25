@@ -85,6 +85,26 @@
   
     window.onload = renderProductList;
   </script>
+  <!-- <h2>Customer Orders</h2> -->
+  <ul id="orderList"></ul>
+  
+  <script>
+    function loadCustomerOrders() {
+      const orderList = document.getElementById("orderList");
+      const allOrders = JSON.parse(localStorage.getItem("customerOrders")) || [];
+  
+      orderList.innerHTML = "";
+      allOrders.forEach((order, idx) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>Order #${idx + 1}</strong><ul>` +
+          order.map(item => `<li>${item.name} - ₹${item.price}</li>`).join("") +
+          "</ul>";
+        orderList.appendChild(li);
+      });
+    }
+  
+    loadCustomerOrders();
+  </script>
   
 
   <script src="shopkeeper.js"></script>

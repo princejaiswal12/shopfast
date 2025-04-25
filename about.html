@@ -13,31 +13,100 @@
   </header>
 
   <section class="about-content">
-    <h2>Who We Are</h2>
-    <p>
-      ShopFast is a digital platform designed to connect local shopkeepers with customers,
-      allowing users to browse products, place orders, and support small businesses in their community.
-    </p>
+    <div class="section" onclick="toggleSection(this)">
+      <div class="section-header">
+        <h2>Who We Are</h2>
+        <span class="toggle-icon">➕</span>
+      </div>
+      <p class="section-content">
+        ShopFast is a digital platform designed to connect local shopkeepers with customers,
+        allowing users to browse products, place orders, and support small businesses in their community.
+      </p>
+    </div>
 
-    <h2>Our Mission</h2>
-    <p>
-      To empower local shops by bringing them online and making shopping convenient, fast,
-      and community-driven for every customer.
-    </p>
+    <div class="section" onclick="toggleSection(this)">
+      <div class="section-header">
+        <h2>Our Mission</h2>
+        <span class="toggle-icon">➕</span>
+      </div>
+      <p class="section-content">
+        To empower local shops by bringing them online and making shopping convenient, fast,
+        and community-driven for every customer.
+      </p>
+    </div>
 
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✅ Seamless product browsing and ordering</li>
-      <li>✅ Real-time product updates from shopkeepers</li>
-      <li>✅ Supporting local economy and small businesses</li>
-      <li>✅ Easy-to-use and responsive web interface</li>
-    </ul>
+    <div class="section" onclick="toggleSection(this)">
+      <div class="section-header">
+        <h2>Why Choose Us?</h2>
+        <span class="toggle-icon">➕</span>
+      </div>
+      <ul class="section-content">
+        <li>✅ Seamless product browsing and ordering</li>
+        <li>✅ Real-time product updates from shopkeepers</li>
+        <li>✅ Supporting local economy and small businesses</li>
+        <li>✅ Easy-to-use and responsive web interface</li>
+      </ul>
+    </div>
 
-    <h2>Our Vision</h2>
-    <p>
-      To become the go-to local shopping hub in every neighborhood by digitizing traditional retail and
-      enhancing customer convenience.
-    </p>
+    <div class="section" onclick="toggleSection(this)">
+      <div class="section-header">
+        <h2>Our Vision</h2>
+        <span class="toggle-icon">➕</span>
+      </div>
+      <p class="section-content">
+        To become the go-to local shopping hub in every neighborhood by digitizing traditional retail and
+        enhancing customer convenience.
+      </p>
+    </div>
   </section>
+  <!-- Team Section -->
+<section class="team-section">
+  <h2>Meet the Team</h2>
+  <div class="team-container">
+    <div class="team-card">
+      <img src="https://via.placeholder.com/100" alt="Team Member">
+      <h3>Alex Smith</h3>
+      <p>Founder & CEO</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="https://via.placeholder.com/100" alt="Team Member">
+      <h3>Priya Patel</h3>
+      <p>Marketing Head</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <img src="https://via.placeholder.com/100" alt="Team Member">
+      <h3>John Doe</h3>
+      <p>Lead Developer</p>
+      <div class="social-icons">
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Twitter"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+  <script src="about.js"></script>
 </body>
 </html>

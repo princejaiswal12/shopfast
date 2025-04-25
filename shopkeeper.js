@@ -1,28 +1,19 @@
-const productList = document.getElementById("productList");
-
 function addProduct() {
-  const name = document.getElementById("productName").value.trim();
-  const price = document.getElementById("productPrice").value.trim();
+  const name = document.getElementById("productName").value;
+  const price = document.getElementById("productPrice").value;
 
   if (!name || !price) {
-    alert("Please enter both product name and price.");
+    alert("Please fill in both fields.");
     return;
   }
 
-  const li = document.createElement("li");
-  li.innerHTML = `
-    ${name} - ₹${price}
-    <button onclick="removeProduct(this)">Remove</button>
-  `;
-
-  productList.appendChild(li);
+  const newProduct = { name, price };
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  products.push(newProduct);
+  localStorage.setItem("products", JSON.stringify(products));
 
   document.getElementById("productName").value = "";
   document.getElementById("productPrice").value = "";
-}
 
-function removeProduct(button) {
-  const li = button.parentElement;
-  productList.removeChild(li);
+  renderProducts(); // update the product list in shopkeeper view
 }
-

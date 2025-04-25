@@ -26,3 +26,33 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+function handleSearch() {
+  const input = document.getElementById("searchInput").value.trim().toLowerCase();
+  const resultContainer = document.getElementById("searchResults");
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+
+  resultContainer.innerHTML = ""; // Clear previous results
+
+  if (!input) {
+    alert("Please enter a product name to search.");
+    return;
+  }
+
+  const matches = products.filter(product =>
+    product.name.toLowerCase().includes(input)
+  );
+
+  if (matches.length === 0) {
+    resultContainer.innerHTML = "<li>No matching products found.</li>";
+    return;
+  }
+
+  matches.forEach(product => {
+    const li = document.createElement("li");
+    li.textContent = `${product.name} - ₹${product.price}`;
+    resultContainer.appendChild(li);
+  });
+}
+
